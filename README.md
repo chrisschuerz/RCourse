@@ -1,6 +1,6 @@
 #Course outline
 
-###Session 1: Basics, writing sscripts, read/write data
+###Session 1: Basics, writing scripts, read/write data
 
 #####Part 1:
 - get to know R and RStudio. 
