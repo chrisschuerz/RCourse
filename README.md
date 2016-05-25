@@ -40,7 +40,7 @@
 
 -
 
-##Session 3: Visualization of your data (ggplot2 vs. base plot functions)
+###Session 3: Visualization of your data (ggplot2 vs. base plot functions)
 
 #####Part 1:
 - Get to know the versatile plot package ggplot2
