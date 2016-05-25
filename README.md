@@ -1,4 +1,4 @@
-##Course outline
+#Course outline
 
 ###Session 1: Basics, writing sscripts, read/write Data
 
