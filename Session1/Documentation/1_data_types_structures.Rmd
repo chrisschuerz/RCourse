@@ -60,5 +60,26 @@ date_4 <- as.Date(date_chr, "%H:%M %d.%m.%y")
 ```
 
 
-###Calculating with different data types
+###Querying the data type
+To ask which type your data is simply use the function *typeof()*. The outcome for different data types is illustrated below:
+```{r}
+typeof(x_true)
+typeof(x_int)
+typeof(x_double)
+typeof(x_chr)
+typeof(x_fct)
+typeof(date_1)
+```
+
+###Conversion between different data types
+Sometimes it is required to convert your data from one data type to another. Examples are when loading data; R interprets dates in a csv file as characters but the user wants them explicitly as dates, or if for any analysis categorical data is given as numeric or character, but a function requires them explicitly as factors. To convert the data type see following examples:
+
+```{r}
+x <- 1.23456
+x_chr <- as.character(x)
+x_factor <- as.factor(x_chr)
+x_logic  <- as.logical(x)
+```
+
+##Data structures
 
