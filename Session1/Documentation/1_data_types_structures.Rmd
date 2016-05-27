@@ -82,4 +82,100 @@ x_logic  <- as.logical(x)
 ```
 
 ##Data structures
+###Overview of the most important data structures
+Here I want to show you the most relevant basic data strucures you might face when starting with R. In the overview below I (actually I took this overview from Hadley Wickham's book "Advanced R") ordered them according to the dimensionality of the data and wheter the data structure holds the same data type or also allows different data types in one structure. 
+
+
+Dimension | Homogenious | Heterogenious
+--------- | ----------- | -------------
+1d        | Vector      | List
+2d        | Matrix      | Data frame
+nD        | Array       | 
+
+In simple examples I want to show how to create and subset these data structures.
+
+###1d/homogenious: Vectors
+All the examples above were actually vectors, in form of single values or the concatination of several values using the operator *c()*. Below you can see different methods to create vectors. Here I want to mention again, that all the values in one vector must be of the same data type. If different data types are mixed they will be converted directly in following order: Logical -> Integer -> Double -> Character
+
+```{r}
+# Concatination of values
+v_num <- c(1,5,7,2,9)
+v_chr <- c("A", "Test", "123", "Last Entry")
+
+# Sequences of values
+v_seq <- seq(1,10,1)
+v_seq <- 1:10 # if the increment is 1 it can be written in this way as well
+v_seq
+
+# Sequence of letters
+v_chr <- LETTERS[1:10]
+v_chr
+
+# Repetition of a value n times
+v_rep <- rep(1,10)
+v_rep
+
+# Repeating the sequence (1 to 10) 10 times
+v <- rep(seq(1,10),10)
+v <- rep(1:10, 10)
+
+# Subsetting a vector
+v[1] # The first value of vector v
+v[seq(1,3)] # The first three values
+v[c(1,5,8)] # Values at 1, 5, and 8 position
+v[length(v)] # Last value in the vector
+
+```
+
+###2d/homogenious: Matrix
+To define a matrix the user has to provide data that is reshaped in a number of rows and columns that have to be provided by the user. If the provided data is "shorter" than the nrows*ncols then the data is repeated until the matrix is filled. The example below illustrates how to define a matrix:
+
+```{r}
+#Defining a matrix with 10 rows and 10 columns with vector v as data input
+m_num <- matrix(data = v, nrow = 10, ncol = 10)
+```
+
+Subsetting a matrix is similar to subsetting a vector. As a matrix is defined by rows and columns, two indices are required to subset a matrix. The first index always gives the rows and the second the columns.
+```{r}
+m_num[1:3,1:3] 
+m_num[seq(3,1, -1),1] # Reverse order with negative increment in sequence
+
+```
+
+
+###1d/heterogenious: List
+A list is similar to a vector. Instead of a single value each position in a list can hold any data structure. This means the first position in the list can be a single value, the second can be a whole matrix, and the third can be again a list. The example below is a list with three variables *A*, *B*, and *C*, whereas *A* and *B* are vectors and *C* is a matrix. Furtheron in the example a fourth variable *df* is added to this list holding a whole data frame (explained below):
+
+```{r}
+# Defining a list
+l_1 <- list(A = v_num, B = v, C = m_num)
+```
+
+A list is subsetted using the *$* operator. as shown in the following example where the variable *C* is extracted from the list.
+
+```{r}
+# Subsetting a list with the $ operator
+l_1$C
+```
+
+To know how to subset a list is very important, as the output of many analyses are given as lists. To access specific results of your analyses you need the *$* operator.
+
+###2d/heterogenious: Data frames
+The most frequent data structure in R is the data frame, as it is the most intuitive way of providing data. Each column can hold a specific data type (e.g. first column Date, second column categorical data as factors and thrird column holding values as double). Simply spoken, a data frame is a hybrid between a list and a matrix. It can be accessed by its row and column indices. Each column can also be accessed by the *$* operator. In the following example a data frame is defined, added to the previously created list and accessed via the *$* operator and indices:
+
+```{r}
+# Defining a data frame
+df <- data.frame(numbers = v_seq,
+                 letters = v_chr,
+                 stringsAsFactors = FALSE)
+
+# Example subsetting a more "complex" data strucure -----------------------
+# Adding whole data frame as one element in the list
+l_1$dataframe <- df
+
+# Fifth element in the column "numbers" of the data frame "df" in the list "l_num"
+l_1$dataframe$numbers[5]
+```
+
+Above you can see that I used the option *stringsAsFactors = * `r FALSE`. This is very important to do when you want to avoid that any text in your data frame should be converted into Factors. This means when you do not explicitly want to work with Factors ALWAYS set this option to `r FALSE`! (also when loading the data e.g. with read.csv)
 
