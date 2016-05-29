@@ -1,5 +1,5 @@
 ---
-title: 'Session 1: Basics, writing scripts, read/write data'
+title: 'Session 1 - Part 1: Basics, writing scripts'
 output: pdf_document
 ---
 
