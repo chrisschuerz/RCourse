@@ -23,19 +23,19 @@
 ###Session 2: Filtering, selecting, editing, analyzing data
 
 #####Part 1:
+- Short repetition of the previous session
+- Open questions: Ranking variables of ANOVA, correlation between variables
 - Learning about R packages
 - Introduction to the very powerful packages tidyR, dplyr, reshape2 and magrittr
-- Filtering extracting data
-- Comparision basic methods to the aforementioned packages
 
 #####Part2:
+- Filtering extracting data
+- Comparision basic methods to the aforementioned packages
 - Working with filtered extracted data
-- Calculating new variables
-- Modification in data
 
 #####Part 3:
-- Specific examples with your data
-- Open questions from previous session
+- Calculating new variables
+- Modification in data
 - Maybe first visualization
 
 -
