@@ -26,8 +26,8 @@ summary(bio_data)
 # First plot of the data --------------------------------------------------
 # Visualization of the data. Just to show you. More about that in Session 3
 ggplot(bio_data) + 
-  geom_violin(aes(x = Water, y = Total_T), fill = "grey80") + 
-  geom_boxplot(aes(x = Water, y = Total_T), width = 0.1) + 
+  geom_violin(aes(x = Water, y = Gain_TDM), fill = "grey80") + 
+  geom_boxplot(aes(x = Water, y = Gain_TDM), width = 0.1) + 
   facet_wrap(~Variety)
 
 # ANOVA -------------------------------------------------------------------
