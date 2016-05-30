@@ -47,6 +47,8 @@ SD2C <- left_join(SD2C_sim_reshp, SD2C_obs) %>%
   left_join(SD2C_grv_reshp) %>% 
   arrange(date)
 
+
+# Plotting results --------------------------------------------------------
 ggplot(SD2C) +
   geom_line(aes(x = date, y = sim)) + 
   geom_pointrange(aes(x = date, y = obs_mean, ymin = obs_lw, ymax = obs_up), col = "cadetblue") + 
