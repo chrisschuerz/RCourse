@@ -11,5 +11,5 @@
 - [Data Wrangling cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf): Very good overview of how you can "wrangle" your data, nicely illustrated by the guys from RStudio
 - [Introduction to dplyr](https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html): Good examples given. Similar to what we did in the course, but more detailed explanation in the text.
 - [Sean Anderson's Intro to dplyr](http://seananderson.ca/2014/09/13/dplyr-intro.html): Very nice blog post to dplyr. Good examples.
-- [Sean Anderson's Intro to reshape](http://seananderson.ca/2013/10/19/reshape.html): He wrote also a nice poste about reshaping your data. Also nice explanation of long and wide format data.
+- [Sean Anderson's Intro to reshape](http://seananderson.ca/2013/10/19/reshape.html): He also wrote a nice post about reshaping your data. Good explanation of long and wide data format.
 - [Info about tidy data](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html): Nice examples for tidying data by Hadley Wickham himself.
