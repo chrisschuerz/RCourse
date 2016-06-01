@@ -43,6 +43,7 @@
 ###Session 3: Visualization of your data (ggplot2 vs. base plot functions)
 
 #####Part 1:
+- Short repetition of the previous session
 - Get to know the versatile plot package ggplot2
 - Learn the "grammar" of ggplot2
 
