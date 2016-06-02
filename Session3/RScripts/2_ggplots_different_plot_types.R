@@ -6,13 +6,17 @@ ggplot() +
   facet_wrap(~Water)
 
 par(mfrow = c(1,2))
-hist(bio_data$Gain_TDM[bio_data$Water == "WS"], main = "WS", xlab = "Gain_TDM", breaks = 10)
-hist(bio_data$Gain_TDM[bio_data$Water == "WW"], main = "WW", xlab = "Gain_TDM", breaks = 10)
+hist(bio_data$Gain_TDM[bio_data$Water == "WS"], 
+     main = "WS", xlab = "Gain_TDM", breaks = 10)
+hist(bio_data$Gain_TDM[bio_data$Water == "WW"], 
+     main = "WW", xlab = "Gain_TDM", breaks = 10)
 dev.off()
 
 # Point plots
 ggplot(data = bio_data) + 
-  geom_point(aes(x = Total_T, y = Gain_TDM, col = Variety, size = Water, alpha = Total_T, shape = Replication)) + 
+  geom_point(aes(x = Total_T, y = Gain_TDM, 
+                 col = Variety, size = Water, 
+                 alpha = Total_T, shape = Replication)) + 
   geom_smooth(aes(x = Total_T, y = Gain_TDM),method = "lm") +
   facet_wrap(~Variety, ncol = 2)
 

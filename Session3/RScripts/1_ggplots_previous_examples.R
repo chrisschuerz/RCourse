@@ -7,8 +7,10 @@ ggplot(bio_data) +
   facet_wrap(~Variety)col = as.factor(depth)
 
 ggplot(bio_data) + 
-  geom_violin(aes(x = Variety, y = Gain_TDM, fill = Water),position=position_dodge(0.5)) + 
-  geom_boxplot(aes(x = Variety, y = Gain_TDM, position = Water), position=position_dodge(0.5), width = 0.1)
+  geom_violin(aes(x = Variety, y = Gain_TDM, fill = Water),
+              position=position_dodge(0.5)) + 
+  geom_boxplot(aes(x = Variety, y = Gain_TDM, position = Water), 
+               position=position_dodge(0.5), width = 0.1)
 
 # Example with classical boxplot() function
 par(mfrow = c(3,3))
