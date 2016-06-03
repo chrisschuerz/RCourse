@@ -1,10 +1,10 @@
 # Plotting overview of bio data -------------------------------------------
 bio_data %<>% mutate(Replication = as.factor(Replication))
 
-ggplot(bio_data) + 
-  geom_violin(aes(x = Water, y = Gain_TDM), fill = "grey80") + 
+ggplot(data = bio_data) + 
+  geom_violin(aes(x = Water, y = Gain_TDM),fill = "grey80") + 
   geom_boxplot(aes(x = Water, y = Gain_TDM), width = 0.1) + 
-  facet_wrap(~Variety)col = as.factor(depth)
+  facet_wrap(~Variety, ncol = 2)
 
 ggplot(bio_data) + 
   geom_violin(aes(x = Variety, y = Gain_TDM, fill = Water),
@@ -32,8 +32,7 @@ boxplot(Gain_TDM~Water, data = bio_data[bio_data$Variety == "Spunta",],
 # Plotting results of water content data ----------------------------------
 ggplot(data = SD2C) +
   geom_line(aes(x = date, y = sim)) + 
-  geom_pointrange(aes(x = date, y = obs_mean, ymin = obs_lw, ymax = obs_up), 
-                  col = "cadetblue") + 
+  geom_pointrange(aes(x = date, y = obs_mean, ymin = obs_lw, ymax = obs_up)) + 
   geom_point(aes(x = date, y = grv), col = "coral3", pch = 15) +
   facet_wrap(~depth, ncol = 4) 
 
