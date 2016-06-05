@@ -63,19 +63,48 @@ plot(bio_data$Total_T, bio_data$Gain_TDM, xlab = "Total_T", ylab = "Gain_TDM")
 # length) for different categories (e.g. crop varieties, treatments). A very
 # common way to illustrate such information is a barplot.
 
-# Barplots with errorbars
-bio_summary <- bio_data %>% 
-  group_by(Variety, Water) %>% 
-  summarise(T_mean    = mean(Total_T), 
-            T_sd      = sd(Total_T),
-            n_samp    = length(Total_T),
-            T_se      = T_sd/sqrt(n_samp)) %>% 
-  mutate(T_lwbd = T_mean - T_se,
-         T_upbd = T_mean + T_se)
+# Barplots with error bars
 
+# As demonstrated in session 2 we have to derive some statistical measures of
+# our data to visualize them in a further step with ggplot.
+# Here we saw in the previous session, that the functions group_by() and
+# summarise(), both from the dplyr package, are very useful.
+bio_summary <- bio_data %>% 
+  # Group bio data by the variables Variety and Water
+  group_by(Variety, Water) %>% 
+  # Summarise and calculate metrics: mean of Total_T for each group
+  summarise(T_mean = mean(Total_T), 
+            # Standard deviation for each group
+            T_sd   = sd(Total_T),
+            #Tthe number of samples each group contains. (length() of a vector
+            #usually gives the number og elements a vector contains)
+            n_samp = length(Total_T),
+            # Standard error for each group
+            T_se   = T_sd/sqrt(n_samp),
+            # Lower and upper boundary for the error bars
+            T_lwbd = T_mean - T_se,
+            T_upbd = T_mean + T_se)
+
+# To visualize the barplot with error bars we again start with the ggplot()
+# command. Here I added the data and the aesthetics that should be controlled by
+# variables (x,y, and the fill of the bars) directly in the ggplot() command.
 ggplot(data = bio_summary, aes(x = Variety, y = T_mean, fill = Water)) + 
+  # As a first layer I add the geomotry bar. As you also can read in the ggplot
+  # cheatsheet, when using the geom_bar() as we do we have to set the option
+  # stat to "Identity". We want to plot the bars for "WW" and "WS" beside each
+  # other. So we set again the position to "dodge".
   geom_bar(stat = "Identity", position = position_dodge(1)) + 
+  # As a further layer we add errorbars. As additional aesthetics we need the
+  # min and max values. Again we use the position_dodge, to plot the error bars
+  # for "WS" and "WW" beside each other. To make the errorbar caps smaller width
+  # was set to 0.5
   geom_errorbar(aes(ymin = T_lwbd, ymax = T_upbd), 
                 position = position_dodge(1), width = 0.5) + 
+  # To color the bars manually we can add the layer scale_fill and give the
+  # manual colors as values to the layer.
   scale_fill_manual(values = c("cadetblue3","coral3" )) + 
+  # There are many more possibilities to refine your plot such as flipping the
+  # plot. For specific functionalities I recommend to google and go for good
+  # posts in online communities such as stackoverflow, or for the chaptersabout
+  # plotting in the R cookbook.
   coord_flip()
