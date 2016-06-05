@@ -17,4 +17,4 @@
 
 ###Plotting:
 - [ggplot cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf): As for data wrangling there is also a cheat sheet for ggplot. Print it out and pin it next to your work space. Highly recommended!
-- [Chapter graphs in the cookbook for R]: Good recipes for ggplot, but also tips for basic plot functions and further tips such as line/point styles etc.
+- [Chapter graphs in the cookbook for R](http://www.cookbook-r.com/Graphs/): Good recipes for ggplot, but also tips for basic plot functions and further tips such as line/point styles etc.
